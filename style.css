@@ -3,35 +3,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 :root {
-    /* Flint Sync Palette */
-    --bg: #0d0d12;
-    --surface: rgba(30, 30, 36, 0.6);
-    --surface-hover: rgba(45, 45, 55, 0.8);
-    --surface-active: rgba(60, 60, 75, 0.9);
-    --border: rgba(255, 255, 255, 0.06);
-    --border-light: rgba(255, 255, 255, 0.15);
+    /* Google-like Light Theme Palette */
+    --bg: #ffffff;
+    --surface: #f1f3f4;
+    --surface-hover: #e8eaed;
+    --surface-active: #dadce0;
+    --border: #dadce0;
+    --border-light: #e8eaed;
 
     /* Text */
-    --text: #fdfdfd;
-    --text-muted: #a1a1aa;
-    --text-dim: #71717a;
+    --text: #202124;
+    --text-muted: #5f6368;
+    --text-dim: #80868b;
 
-    /* Accent (Flint Gold) */
-    --accent: #c4c4c2;
-    --accent-dim: #3a3a3b;
-    --accent-glow: rgba(226, 192, 68, 0.1);
+    /* Accent (Google Blue) */
+    --accent: #1a73e8;
+    --accent-dim: #e8f0fe;
+    --accent-glow: rgba(26, 115, 232, 0.2);
 
     /* Status colors */
-    --success: #22c55e;
-    --warning: #f59e0b;
-    --error: #ef4444;
-    --info: #3b82f6;
+    --success: #1e8e3e;
+    --warning: #f9ab00;
+    --error: #d93025;
+    --info: #1a73e8;
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
 
     /* Spacing */
     --space-xs: 4px;
@@ -78,11 +78,11 @@
 body,
 html,
 #app {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-sans);
     width: 100vw;
     height: 100vh;
     margin: 0;
-    background: radial-gradient(circle at top, #1a1a20, #0d0d12 80%);
+    background: var(--bg);
     overflow: hidden;
     color: var(--text);
 }
@@ -100,7 +100,7 @@ html,
     display: flex;
     padding: 10px 10px 0;
     gap: 4px;
-    background: transparent;
+    background: var(--surface);
     overflow-x: auto;
     align-items: flex-end;
 }
@@ -117,8 +117,7 @@ html,
     min-width: 160px;
     max-width: 220px;
     background: var(--surface);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
+    border: 1px solid transparent;
     border-bottom: none;
     border-radius: 12px 12px 0 0;
     cursor: pointer;
@@ -132,7 +131,7 @@ html,
 
 .tab.active {
     background: var(--bg);
-    border-color: var(--accent);
+    border-color: var(--border);
     z-index: 2;
 }
 
@@ -168,7 +167,7 @@ html,
 }
 
 .tab-close:hover {
-    background: rgba(239, 68, 68, 0.2);
+    background: rgba(217, 48, 37, 0.1);
     color: var(--error);
 }
 
@@ -178,8 +177,8 @@ html,
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: var(--surface);
-    border: 1px solid var(--border);
+    background: transparent;
+    border: 1px solid transparent;
     color: var(--text-muted);
     border-radius: 8px;
     cursor: pointer;
@@ -190,9 +189,8 @@ html,
 }
 
 .new-tab:hover {
-    background: var(--accent);
-    color: #000;
-    border-color: var(--accent);
+    background: var(--surface-hover);
+    color: var(--text);
 }
 
 /* Navigation Bar */
@@ -222,7 +220,7 @@ html,
 
 .nav button:hover {
     background: var(--surface-hover);
-    color: var(--accent);
+    color: var(--text);
 }
 
 /* Address Bar Wrapper */
@@ -237,8 +235,8 @@ input.bar {
     width: 100%;
     height: 38px;
     padding: 0 45px 0 18px;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--border);
+    background: var(--surface);
+    border: 1px solid transparent;
     border-radius: 20px;
     color: var(--text);
     font-size: 13px;
@@ -249,8 +247,8 @@ input.bar {
 
 input.bar:focus {
     border-color: var(--accent);
-    background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 15px var(--accent-glow);
+    background: var(--bg);
+    box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
 input.bar::placeholder {
@@ -275,7 +273,7 @@ input.bar::placeholder {
 }
 
 #home-btn-nav:hover {
-    color: var(--accent);
+    color: var(--text);
     background: var(--surface-hover);
 }
 
@@ -289,7 +287,6 @@ input.bar::placeholder {
     height: 100%;
     width: 0%;
     background: var(--accent);
-    box-shadow: 0 0 8px var(--accent-glow);
     transition: width 0.3s ease, opacity 0.15s;
 }
 
@@ -297,7 +294,7 @@ input.bar::placeholder {
 .iframe-container {
     flex: 1;
     position: relative;
-    background: var(--bg);
+    background: var(--surface);
 }
 
 .iframe-container iframe {
@@ -338,7 +335,7 @@ input.bar::placeholder {
     position: absolute;
     top: 0;
     left: 0;
-    background: rgba(13, 13, 18, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 10;
@@ -347,6 +344,10 @@ input.bar::placeholder {
 .message-content {
     max-width: 400px;
     padding: 20px;
+    background: var(--bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
 }
 
 .message-content h1 {
@@ -363,7 +364,7 @@ input.bar::placeholder {
 }
 
 .spinner {
-    border: 2px solid var(--border);
+    border: 2px solid var(--border-light);
     border-top-color: var(--accent);
     border-radius: 50%;
     width: 32px;
@@ -375,8 +376,8 @@ input.bar::placeholder {
 #skip-btn {
     margin-top: 20px;
     padding: 8px 16px;
-    background: transparent;
-    color: var(--text-muted);
+    background: var(--surface);
+    color: var(--text);
     border: 1px solid var(--border);
     border-radius: 8px;
     cursor: pointer;
@@ -386,15 +387,15 @@ input.bar::placeholder {
 }
 
 #skip-btn:hover {
-    border-color: var(--accent);
-    color: var(--text);
+    background: var(--surface-hover);
+    border-color: var(--border-light);
 }
 
 /* Spinner */
 .tab-spinner {
     width: 14px;
     height: 14px;
-    border: 2px solid var(--border);
+    border: 2px solid var(--border-light);
     border-top-color: var(--accent);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
@@ -411,8 +412,8 @@ input.bar::placeholder {
 .wisp-settings-modal {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -425,13 +426,13 @@ input.bar::placeholder {
 
 /* --- New Wider Settings Layout --- */
 .settings-card {
-    background: #16161d;
-    width: 800px; /* Increased from 420px */
+    background: var(--bg);
+    width: 800px; 
     max-width: 95vw;
     height: 550px;
-    border-radius: 24px;
-    border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-lg);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-xl);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -445,7 +446,7 @@ input.bar::placeholder {
 
 .settings-sidebar {
     width: 200px;
-    background: rgba(0, 0, 0, 0.2);
+    background: #f8f9fa; /* Even lighter for standard sidebar */
     border-right: 1px solid var(--border);
     padding: 20px 0;
     display: flex;
@@ -457,6 +458,7 @@ input.bar::placeholder {
     padding: 12px 24px;
     font-size: 13px;
     color: var(--text-muted);
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.15s;
     display: flex;
@@ -472,13 +474,14 @@ input.bar::placeholder {
 .sidebar-item.active {
     background: var(--accent-dim);
     color: var(--accent);
-    border-right: 2px solid var(--accent);
+    border-right: 3px solid var(--accent);
 }
 
 .settings-content {
     flex: 1;
     padding: 32px;
     overflow-y: auto;
+    background: var(--bg);
 }
 
 .settings-pane.hidden {
@@ -505,11 +508,12 @@ input.bar::placeholder {
 .settings-label span:first-child {
     font-size: 14px;
     font-weight: 500;
+    color: var(--text);
 }
 
 .settings-label span:last-child {
-    font-size: 11px;
-    color: var(--text-dim);
+    font-size: 12px;
+    color: var(--text-muted);
     margin-top: 2px;
 }
 
@@ -530,6 +534,7 @@ select.settings-select {
     align-items: center;
     padding: 20px 24px;
     border-bottom: 1px solid var(--border);
+    background: var(--bg);
 }
 
 .settings-header h2 {
@@ -559,8 +564,6 @@ select.settings-select {
     background: var(--surface-hover);
 }
 
-
-
 .section-title {
     font-size: 11px;
     text-transform: uppercase;
@@ -582,7 +585,7 @@ select.settings-select {
     flex-direction: column;
     gap: 4px;
     padding: 14px;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
     cursor: pointer;
@@ -591,7 +594,7 @@ select.settings-select {
 
 .wisp-option:hover {
     border-color: var(--border-light);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--surface-hover);
 }
 
 .wisp-option.active {
@@ -613,8 +616,8 @@ select.settings-select {
 
 .wisp-option-url {
     font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-dim);
+    font-size: 12px;
+    color: var(--text-muted);
 }
 
 .server-status {
@@ -648,17 +651,20 @@ select.settings-select {
     flex: 1;
     height: 40px;
     padding: 0 14px;
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 10px;
     color: var(--text);
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: 13px;
     outline: none;
     transition: all 0.15s;
 }
 
-.custom-input-group input:focus { border-color: var(--accent); }
+.custom-input-group input:focus { 
+    border-color: var(--accent); 
+    background: var(--bg);
+}
 
 .custom-input-group button {
     height: 40px;
@@ -666,13 +672,16 @@ select.settings-select {
     background: var(--accent);
     border: none;
     border-radius: 10px;
-    color: #000;
-    font-weight: 600;
+    color: #ffffff;
+    font-weight: 500;
     cursor: pointer;
-    transition: opacity 0.15s;
+    transition: opacity 0.15s, background 0.15s;
 }
 
-.custom-input-group button:hover { opacity: 0.9; }
+.custom-input-group button:hover { 
+    opacity: 0.9;
+    box-shadow: var(--shadow-sm);
+}
 
 .settings-footer {
     padding: 16px 24px;
@@ -680,6 +689,7 @@ select.settings-select {
     color: var(--text-dim);
     font-size: 12px;
     text-align: center;
+    background: #f8f9fa;
 }
 
 .delete-wisp-btn {
@@ -716,6 +726,7 @@ select.settings-select {
     top: 2px;
     left: 2px;
     transition: transform 0.2s;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 .toggle-switch.active .toggle-knob { transform: translateX(20px); }
