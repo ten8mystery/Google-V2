@@ -1,0 +1,11 @@
+{
+  "name": "flint-wisp",
+  "type": "module",
+  "dependencies": {
+    "@mercuryworkshop/wisp-js": "latest",
+    "express": "latest"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
