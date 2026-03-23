@@ -3,10 +3,9 @@ const localWispUrl = (window.location.protocol === "https:" ? "wss://" : "ws://"
 const DEFAULT_WISP = window.SITE_CONFIG?.defaultWisp ?? localWispUrl;
 
 const WISP_SERVERS = [
-    { name: "Local (Recommended)", url: localWispUrl },
-    { name: "Alt 1", url: "wss://i-ready.math.bostoncareercounselor.com/wisp/" },
-    { name: "Alt 2", url: "wss://glseries.net/wisp/" },
-    { name: "Alt 3", url: "wss://wisp.rhw.one/wisp/" }
+    { name: "Wisp 1", url: "wss://i-ready.math.bostoncareercounselor.com/wisp/" },
+    { name: "Wisp 2", url: "wss://glseries.net/wisp/" },
+    { name: "Wisp 3", url: "wss://wisp.rhw.one/wisp/" }
 ];
 
 // Initialize default proxy server if not set
